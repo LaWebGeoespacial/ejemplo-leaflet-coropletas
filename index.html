@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ejemplo de mapa de Coropletas2 con Leaflet y GeoJSON</title>
+    <title>Ejemplo de mapa de Coropletas con Leaflet y GeoJSON</title>
 
     <meta charset="UTF-8" />
 	
@@ -28,9 +28,15 @@
 	    
       // get color depending on population density value
       function getColor(d) {
-	return d > 40 ? '#de2d26' :
-	       d > 20 ? '#fc9272' :
-		        '#FFEDA0';
+	return d > 40 ? '#67000d' :
+	       d > 35 ? '#a50f15' :
+	       d > 30 ? '#cb181d' :
+	       d > 25 ? '#ef3b2c' :
+	       d > 20 ? '#fb6a4a' :
+	       d > 15 ? '#fc9272' :
+	       d > 10 ? '#fcbba1' :
+	       d >  5 ? '#fee0d2' :
+		        '#fff5f0';
       }	    
 	    
       L.geoJson(riqespecies, {
