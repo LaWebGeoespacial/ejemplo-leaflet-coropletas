@@ -28,15 +28,13 @@
 	    
       // get color depending on population density value
       function getColor(d) {
-	return d > 35 ? '#67000d' :
-	       d > 30 ? '#a50f15' :
-	       d > 25 ? '#cb181d' :
-	       d > 20 ? '#ef3b2c' :
-	       d > 15 ? '#fb6a4a' :
-	       d > 10 ? '#fc9272' :
-	       d >  5 ? '#fcbba1' :
-	       d >  3 ? '#fee0d2' :
-		        '#fff5f0';
+	return d > 25 ? '#67000d' :
+	       d > 20 ? '#a50f15' :
+	       d > 15 ? '#cb181d' :
+	       d > 10 ? '#ef3b2c' :
+	       d >  5 ? '#fb6a4a' :
+	       d >  3 ? '#fc9272' :
+		        '#fcbba1';
       }	    
 	    
       L.geoJson(riqespecies, {
