@@ -22,9 +22,10 @@
 
     <script>
       var map = L.map('map').setView([9.7, -84], 8);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'
-      }).addTo(map);
+      });
+      osm.addTo(map);
 	    
       // get color depending on population density value
       function getColor(d) {
@@ -81,6 +82,17 @@
 	      
 	onEachFeature: onEachFeature
       }).addTo(map);	    */
+	    
+	var baseLayers = {
+		"Grayscale": grayscale,
+		"Streets": streets
+	};
+
+	var overlays = {
+		"Cities": cities
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
 	    
 	    
     </script>
