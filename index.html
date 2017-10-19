@@ -38,7 +38,7 @@
 		        '#fcbba1';
       }	    
 	    
-      L.geoJson(riqespecies, {
+      var riqueza = L.geoJson(riqespecies, {
         style: function (feature) {
 	  return {
 	    weight: 2,
@@ -49,7 +49,8 @@
             fillColor: getColor(feature.properties.spprichnes)
           };
         }
-      }).addTo(map);
+      })
+      riqueza.addTo(map);
 	    
 	    
       function onEachFeature(feature, layer) {
@@ -83,16 +84,15 @@
 	onEachFeature: onEachFeature
       }).addTo(map);	    */
 	    
-	var baseLayers = {
-		"Grayscale": grayscale,
-		"Streets": streets
-	};
+      var baseLayers = {
+	"OSM": osm
+      };
 
-	var overlays = {
-		"Cities": cities
-	};
+      var overlays = {
+	"Riqueza de especies": riqueza
+      };
 
-	L.control.layers(baseLayers, overlays).addTo(map);
+      L.control.layers(baseLayers, overlays).addTo(map);
 	    
 	    
     </script>
