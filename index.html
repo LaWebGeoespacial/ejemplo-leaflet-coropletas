@@ -28,7 +28,7 @@
       osm.addTo(mapa);
 	    
       // retorna un color con base en la cantidad de especies
-      function getColor(d) {
+      function color(d) {
 	return d > 25 ? '#67000d' :
 	       d > 20 ? '#a50f15' :
 	       d > 15 ? '#cb181d' :
@@ -55,7 +55,7 @@
 	    color: 'white',
 	    dashArray: '3',
 	    fillOpacity: 0.7,		  
-            fillColor: getColor(feature.properties.spprichnes)
+            fillColor: color(feature.properties.spprichnes)
           };
         },
 	      
