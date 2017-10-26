@@ -15,20 +15,20 @@
 
   <body>
     <h1>Riqueza de especies de aves acuáticas residentes en los sitios Ramsar de Costa Rica</h1>
-    <div id='map'></div>
+    <div id='mapa'></div>
 
     <script src="js/riqespecies_avesacures-cr_ramsar-2017-wgs84.js" type="text/javascript"></script>
     <script src="js/regPresGBIFAvesAcuRes-cr_ramsar-2017-wgs84.js"  type="text/javascript"></script>
 
     <script>
-      var map = L.map('map').setView([9.7, -84], 8);
-      var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      var mapa = L.map('mapa').setView([9.7, -84], 8);
+      var osm  = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '<a href="http://www.openstreetmap.org/">OpenStreetMap</a>'
       });
-      osm.addTo(map);
+      osm.addTo(mapa);
 	    
       // retorna un color con base en la cantidad de especies
-      function getColor(d) {
+      function color(d) {
 	return d > 25 ? '#67000d' :
 	       d > 20 ? '#a50f15' :
 	       d > 15 ? '#cb181d' :
@@ -56,17 +56,17 @@
 	    color: 'white',
 	    dashArray: '3',
 	    fillOpacity: 0.7,		  
-            fillColor: getColor(feature.properties.spprichnes)
+            fillColor: color(feature.properties.spprichnes)
           };
         },
 	      
 	onEachFeature: infoRiqueza
       })
-      riqueza.addTo(map);
+      riqueza.addTo(mapa);
 	    
 	    
       function infoPresencia(feature, layer) {
-	var popupContent = "";
+	var popupContent = "Especie: ";
 	if (feature.properties && feature.properties.scientif_1) {
 	  popupContent += feature.properties.scientif_1;
 	}
@@ -106,7 +106,7 @@
 	"Registros de presencia": registrosPresencia
       };
 
-      L.control.layers(baseLayers, overlays).addTo(map);
+      L.control.layers(baseLayers, overlays).addTo(mapa);
 	    
 	    
     </script>
