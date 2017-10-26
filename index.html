@@ -63,7 +63,7 @@
       riqueza.addTo(map);
 	    
 	    
-      function onEachFeature(feature, layer) {
+      function infoPresencia(feature, layer) {
 	var popupContent = "";
 	if (feature.properties && feature.properties.scientif_1) {
 	  popupContent += feature.properties.scientif_1;
@@ -72,7 +72,7 @@
       }	    
 	    
 	    
-      registros = L.geoJson(regpresencia, {
+      registrosPresencia = L.geoJson(regpresencia, {
         style: function (feature) {
 	  return {
             fillColor: '#0000ff', 
@@ -91,9 +91,9 @@
 	  });
 	},
 	      
-	onEachFeature: onEachFeature
+	onEachFeature: infoPresencia
       })
-      registros.addTo(map);	    
+      registrosPresencia.addTo(map);	    
 	    
       var baseLayers = {
 	"OSM": osm
@@ -101,7 +101,7 @@
 
       var overlays = {
 	"Riqueza de especies": riqueza,
-	"Registros de presencia": registros
+	"Registros de presencia": registrosPresencia
       };
 
       L.control.layers(baseLayers, overlays).addTo(map);
